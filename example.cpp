@@ -47,6 +47,5 @@ int main()
     ShellSort(std_Array2, std_Array2.size());
     printCont(std_Array2, std_Array2.size());
 
-
     return 0;
 }
