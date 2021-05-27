@@ -6,7 +6,7 @@ namespace AlgoLib
 	namespace Sorting
 	{
 		template <typename Cont>
-		int quickSortHelper(Cont& a, int left, int right)
+		int quickSortHelper(Cont& a, unsigned int left, unsigned int right)
 		{
 			auto pivot = a[right];
 			int i = (left - 1);
@@ -23,7 +23,7 @@ namespace AlgoLib
 		}
 
 		template <typename Cont>
-		void QuickSort(Cont& arr, int left, int right)
+		void QuickSort(Cont& arr, unsigned int left, unsigned int right)
 		{
 			if (left < right)
 			{
@@ -34,9 +34,9 @@ namespace AlgoLib
 		}
 
 		template <typename Cont>
-		void Merge(Cont& a, Cont& b, int low, int middle, int high)
+		void Merge(Cont& a, Cont& b, unsigned int low, unsigned int middle, unsigned int high)
 		{
-			int leftIter, rightIter, tmp;
+			unsigned int leftIter, rightIter, tmp;
 			leftIter = tmp = low;
 			rightIter = middle + 1;
 			while (leftIter <= middle && rightIter <= high)
@@ -65,18 +65,18 @@ namespace AlgoLib
 				++tmp;
 				++rightIter;
 			}
-			for (int i = low; i < tmp; ++i)
+			for (unsigned int i = low; i < tmp; ++i)
 			{
 				a[i] = b[i];
 			}
 		}
 
 		template <typename Cont>
-		void MergeSort(Cont& a, Cont& b, int low, int high)
+		void MergeSort(Cont& a, Cont& b, unsigned int low, unsigned int high)
 		{
 			if (low < high)
 			{
-				int middle = (low + high) / 2;
+				unsigned int middle = (low + high) / 2;
 				MergeSort(a, b, low, middle);
 				MergeSort(a, b, middle + 1, high);
 				Merge(a, b, low, middle, high);
@@ -84,11 +84,11 @@ namespace AlgoLib
 		}
 
 		template <typename Cont>
-		void maxHeap(Cont& a, int n, int rootIdx)
+		void maxHeap(Cont& a, std::size_t n, unsigned int rootIdx)
 		{
-			int max = rootIdx;
-			int leftIdx = 2 * rootIdx + 1;
-			int rightIdx = 2 * rootIdx + 2;
+			unsigned int max = rootIdx;
+			unsigned int leftIdx = 2 * rootIdx + 1;
+			unsigned int rightIdx = 2 * rootIdx + 2;
 			if (rightIdx < n && a[max] < a[rightIdx])
 				max = rightIdx;
 			if (leftIdx < n && a[max] < a[leftIdx])
@@ -101,11 +101,11 @@ namespace AlgoLib
 		}
 
 		template <typename Cont>
-		void HeapSort(Cont& a, int n)
+		void HeapSort(Cont& a, std::size_t n)
 		{
-			for (int i = n / 2 - 1; i >= 0; --i)
+			for (unsigned int i = n / 2 - 1; i >= 0; --i)
 				maxHeap(a, n, i);
-			for (int i = n - 1; i > 0; --i)
+			for (unsigned int i = n - 1; i > 0; --i)
 			{
 				std::swap(a[0], a[i]);
 				maxHeap(a, i, 0);
