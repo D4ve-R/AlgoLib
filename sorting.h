@@ -12,7 +12,7 @@ namespace AlgoLib
 		{
 			auto pivot = a[right];
 			int i = (left - 1);
-			for (int j = left; j <= right - 1; ++j)
+			for (unsigned int j = left; j <= right - 1; ++j)
 			{
 				if (a[j] <= pivot)
 				{
@@ -25,7 +25,7 @@ namespace AlgoLib
 		}
 
 		template <typename Cont>
-		void QuickSort(Cont& arr, unsigned int left, unsigned int right)
+		void QuickSort(Cont& arr, int left, int right)
 		{
 			if (left < right)
 			{
@@ -105,10 +105,10 @@ namespace AlgoLib
 		template <typename Cont>
 		void HeapSort(Cont& a, std::size_t n)
 		{
-			for (unsigned int i = n / 2 - 1; i >= 0; --i)
+			for (int i = n / 2 - 1; i >= 0; --i)
 				maxHeap(a, n, i);
 				
-			for (unsigned int i = n - 1; i > 0; --i)
+			for (int i = n - 1; i > 0; --i)
 			{
 				std::swap(a[0], a[i]);
 				maxHeap(a, i, 0);
