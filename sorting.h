@@ -5,10 +5,10 @@ namespace AlgoLib
 {
 	namespace Sorting
 	{
-		template <typename Ret, typename Cont>
+		template <typename Cont>
 		int quickSortHelper(Cont& a, int left, int right)
 		{
-			Ret pivot = a[right];
+			auto pivot = a[right];
 			int i = (left - 1);
 			for (int j = left; j <= right - 1; ++j)
 			{
@@ -22,14 +22,14 @@ namespace AlgoLib
 			return (i + 1);
 		}
 
-		template <typename Ret, typename Cont>
+		template <typename Cont>
 		void QuickSort(Cont& arr, int left, int right)
 		{
 			if (left < right)
 			{
-				int pivot = quickSortHelper<Ret, Cont>(arr, left, right);
-				QuickSort<Ret, Cont>(arr, left, pivot - 1);
-				QuickSort<Ret, Cont>(arr, pivot + 1, right);
+				int pivot = quickSortHelper(arr, left, right);
+				QuickSort(arr, left, pivot - 1);
+				QuickSort(arr, pivot + 1, right);
 			}
 		}
 
@@ -77,9 +77,9 @@ namespace AlgoLib
 			if (low < high)
 			{
 				int middle = (low + high) / 2;
-				MergeSort<Cont>(a, b, low, middle);
-				MergeSort<Cont>(a, b, middle + 1, high);
-				Merge<Cont>(a, b, low, middle, high);
+				MergeSort(a, b, low, middle);
+				MergeSort(a, b, middle + 1, high);
+				Merge(a, b, low, middle, high);
 			}
 		}
 
@@ -95,11 +95,8 @@ namespace AlgoLib
 				max = leftIdx;
 			if (max != rootIdx)
 			{
-				//Ret tmp = a[rootIdx];
-				//a[rootIdx] = a[max];
-				//a[max] = tmp;
 				std::swap(a[rootIdx], a[max]);
-				maxHeap<Cont>(a, n, max);
+				maxHeap(a, n, max);
 			}
 		}
 
@@ -107,11 +104,11 @@ namespace AlgoLib
 		void HeapSort(Cont& a, int n)
 		{
 			for (int i = n / 2 - 1; i >= 0; --i)
-				maxHeap<Cont>(a, n, i);
+				maxHeap(a, n, i);
 			for (int i = n - 1; i > 0; --i)
 			{
 				std::swap(a[0], a[i]);
-				maxHeap<Cont>(a, i, 0);
+				maxHeap(a, i, 0);
 			}
 		}
 	}

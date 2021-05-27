@@ -1,24 +1,47 @@
 #include <iostream>
+#include <cstddef>
 #include <vector>
 #include <array>
 
 #include "Sorting.h"
 
-using namespace AlgoLib::Sorting;
+template <typename Cont>
+void printCont(const Cont& cont, std::size_t n)
+{
+    for (size_t t = 0; t < n; ++t)
+    {
+        std::cout << cont[t];
+    }
+    std::cout << std::endl;
+}
 
 int main()
 {
+    using namespace AlgoLib::Sorting;
+
     std::vector<int> vec = {8, 6, 2, 3};
-    QuickSort<int>(vec, 0, 3);
-    std::cout << vec[0] << vec[1] << vec[2] << vec[3] << std::endl;
+    QuickSort(vec, 0, 3);
+    printCont(vec, vec.size());
 
     int c_Array[] = {5, 9, 4, 1};
-    QuickSort<int>(c_Array, 0, 3);
-    std::cout << c_Array[0] << c_Array[1] << c_Array[2] << c_Array[3] << std::endl;
+    QuickSort(c_Array, 0, 3);
+    printCont(c_Array, sizeof(c_Array)/sizeof(c_Array[0]));
     
     std::array<int, 4> std_Array = {7, 2, 4, 1};
-    QuickSort<int>(std_Array, 0, 3);
-    std::cout << std_Array[0] << std_Array[1] << std_Array[2] << std_Array[3] << std::endl;
+    QuickSort(std_Array, 0, 3);
+    printCont(std_Array, std_Array.size());
+
+    std::vector<int> vec1 = {8, 6, 2, 3};
+    HeapSort(vec1, 4);
+    printCont(vec1, vec1.size());
+
+    int c_Array1[] = {5, 9, 4, 1};
+    HeapSort(c_Array1, 4);
+    printCont(c_Array1, sizeof(c_Array1)/sizeof(c_Array1[0]));
+    
+    std::array<int, 4> std_Array1 = {7, 2, 4, 1};
+    HeapSort(std_Array1, 4);
+    printCont(std_Array1, std_Array1.size());
 
     return 0;
 }
