@@ -1,5 +1,5 @@
 # AlgoLib
-AlgoLib is a header-only template library, containing basic implementations for standard sorting algorithms.
+AlgoLib is a header-only template library, containing basic implementations of standard sorting algorithms.
 
 ### Supported Containers:
 * c style array
@@ -12,5 +12,5 @@ AlgoLib is a header-only template library, containing basic implementations for 
 * double
 
 ## Usage  
-simply copy the Sorting Headerfile [Sorting.h](https://github.com/D4ve-R/AlgoLib/sorting.cpp) in your project.  
-for example usage, check out [example.cpp](https://github.com/D4ve-R/AlgoLib/example.cpp).
+simply copy the Sorting Headerfile [Sorting.h](https://github.com/D4ve-R/AlgoLib/blob/main/sorting.h) in your project.  
+for example usage, check out [example.cpp](https://github.com/D4ve-R/AlgoLib/blob/main/example.cpp).
