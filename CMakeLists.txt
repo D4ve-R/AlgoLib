@@ -9,8 +9,8 @@ include(GNUInstallDirs)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-add_subdirectory("lib")
 
-target_include_directories(${PROJECT_NAME} PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/lib")
+add_subdirectory("${PROJECT_SOURCE_DIR}/lib")
+
 
 add_executable(example example.cpp)

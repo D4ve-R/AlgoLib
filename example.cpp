@@ -3,7 +3,7 @@
 #include <vector>
 #include <array>
 
-#include "Sorting.h"
+#include "lib/Sorting.h"
 
 template <typename Cont>
 void printCont(const Cont& cont, std::size_t n)
@@ -27,7 +27,7 @@ int main()
     QuickSort(c_Array, 0, 3);
     printCont(c_Array, sizeof(c_Array)/sizeof(c_Array[0]));
     
-    std::array<int, 4> std_Array = {{7, 2, 4, 1}};
+    std::array<int, 4> std_Array = {7, 2, 4, 1};
     QuickSort(std_Array, 0, 3);
     printCont(std_Array, std_Array.size());
 
@@ -42,6 +42,11 @@ int main()
     std::array<int, 4> std_Array1 = {{7, 2, 4, 1}};
     HeapSort(std_Array1, std_Array1.size());
     printCont(std_Array1, std_Array1.size());
+
+    std::array<int, 4> std_Array2 = {{7, 2, 4, 1}};
+    ShellSort(std_Array2, std_Array2.size());
+    printCont(std_Array2, std_Array2.size());
+
 
     return 0;
 }

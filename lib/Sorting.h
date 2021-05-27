@@ -102,18 +102,41 @@ namespace AlgoLib
 			}
 		}
 
-		template <typename Cont>
-		void HeapSort(Cont& a, std::size_t n)
-		{
-			for (int i = n / 2 - 1; i >= 0; --i)
-				maxHeap(a, n, i);
-				
-			for (int i = n - 1; i > 0; --i)
-			{
-				std::swap(a[0], a[i]);
-				maxHeap(a, i, 0);
-			}
-		}
+        template <typename Cont>
+        void HeapSort(Cont& a, std::size_t n)
+        {
+        	for (int i = n / 2 - 1; i >= 0; --i)
+        		maxHeap(a, n, i);
+        	for (int i = n - 1; i > 0; --i)
+        	{
+          		std::swap(a[0], a[i]);
+          		maxHeap(a, i, 0);
+        	}
+        }
+
+        template <typename Cont>
+        void ShellSort(Cont& a, std::size_t n)
+        {
+        	int h = 1;
+        	while (h < n)
+        	{
+            	// Hibbard
+            	h = 2 * h + 1;
+		  	}
+        	for (int gap = h; gap > 0; gap = (gap - 1)/2)
+            {
+            	for (int i = gap; i < n; ++i)
+            	{
+            		auto tmp = a[i];
+                	int j = i;
+                	for (; j >= gap && tmp < a[j - gap]; j -= gap)
+                	{
+                  		a[j] = a[j - gap];
+					}
+					a[j] = tmp;
+		      	}
+		    }
+	    } 
 	}
 }
 
