@@ -19,4 +19,6 @@ int main()
     std::array<int, 4> std_Array = {7, 2, 4, 1};
     QuickSort<int>(std_Array, 0, 3);
     std::cout << std_Array[0] << std_Array[1] << std_Array[2] << std_Array[3] << std::endl;
+
+    return 0;
 }
