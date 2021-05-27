@@ -1,6 +1,8 @@
 #ifndef SORTING_H
 #define SORTING_H
 
+#include <cstddef>
+
 namespace AlgoLib
 {
 	namespace Sorting
@@ -105,6 +107,7 @@ namespace AlgoLib
 		{
 			for (unsigned int i = n / 2 - 1; i >= 0; --i)
 				maxHeap(a, n, i);
+				
 			for (unsigned int i = n - 1; i > 0; --i)
 			{
 				std::swap(a[0], a[i]);

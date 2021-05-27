@@ -32,7 +32,7 @@ int main()
     printCont(std_Array, std_Array.size());
 
     std::vector<int> vec1 = {8, 6, 2, 3};
-    HeapSort(vec1, 4);
+    HeapSort(vec1, vec1.size());
     printCont(vec1, vec1.size());
 
     int c_Array1[] = {5, 9, 4, 1};
@@ -40,7 +40,7 @@ int main()
     printCont(c_Array1, sizeof(c_Array1)/sizeof(c_Array1[0]));
     
     std::array<int, 4> std_Array1 = {7, 2, 4, 1};
-    HeapSort(std_Array1, 4);
+    HeapSort(std_Array1, std_Array1.size());
     printCont(std_Array1, std_Array1.size());
 
     return 0;
