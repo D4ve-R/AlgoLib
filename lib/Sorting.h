@@ -15,23 +15,20 @@ namespace AlgoLib
 			for (unsigned int j = left; j <= right - 1; ++j)
 			{
 				if (a[j] <= pivot)
-				{
-					++i;
-					std::swap(a[i], a[j]);
-				}
+					std::swap(a[++i], a[j]);
 			}
 			std::swap(a[i + 1], a[right]);
 			return (i + 1);
 		}
 
 		template <typename Cont>
-		void quickSort(Cont& arr, int left, int right)
+		void quickSort(Cont& a, int left, int right)
 		{
 			if (left < right)
 			{
 				int pivot = quickSortHelper(arr, left, right);
-				quickSort(arr, left, pivot - 1);
-				quickSort(arr, pivot + 1, right);
+				quickSort(a, left, pivot - 1);
+				quickSort(a, pivot + 1, right);
 			}
 		}
 
@@ -44,13 +41,9 @@ namespace AlgoLib
 			while (leftIter <= middle && rightIter <= high)
 			{
 				if (a[leftIter] <= a[rightIter])
-				{
 					b[tmp++] = a[leftIter++];
-				}
 				else
-				{
 					b[tmp++] = a[rightIter++];
-				}
 			}
 			while (leftIter <= middle)
 			{
@@ -59,10 +52,6 @@ namespace AlgoLib
 			while (rightIter <= high)
 			{
 				b[tmp++] = a[rightIter++];
-			}
-			for (unsigned int i = low; i < tmp; ++i)
-			{
-				a[i] = b[i];
 			}
 		}
 
