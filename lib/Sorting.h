@@ -8,7 +8,7 @@ namespace AlgoLib
 	namespace Sorting
 	{
 		template <typename Cont>
-		int quickSortHelper(Cont& a, unsigned int left, unsigned int right)
+		int quickSortHelper(Cont& a, int left, int right)
 		{
 			auto pivot = a[right];
 			int i = (left - 1);
@@ -25,18 +25,18 @@ namespace AlgoLib
 		}
 
 		template <typename Cont>
-		void QuickSort(Cont& arr, int left, int right)
+		void quickSort(Cont& arr, int left, int right)
 		{
 			if (left < right)
 			{
 				int pivot = quickSortHelper(arr, left, right);
-				QuickSort(arr, left, pivot - 1);
-				QuickSort(arr, pivot + 1, right);
+				quickSort(arr, left, pivot - 1);
+				quickSort(arr, pivot + 1, right);
 			}
 		}
 
 		template <typename Cont>
-		void Merge(Cont& a, Cont& b, unsigned int low, unsigned int middle, unsigned int high)
+		void merge(Cont& a, Cont& b, unsigned int low, unsigned int middle, unsigned int high)
 		{
 			unsigned int leftIter, rightIter, tmp;
 			leftIter = tmp = low;
@@ -45,27 +45,20 @@ namespace AlgoLib
 			{
 				if (a[leftIter] <= a[rightIter])
 				{
-					b[tmp] = a[leftIter];
-					++leftIter;
+					b[tmp++] = a[leftIter++];
 				}
 				else
 				{
-					b[tmp] = a[rightIter];
-					++rightIter;
+					b[tmp++] = a[rightIter++];
 				}
-				++tmp;
 			}
 			while (leftIter <= middle)
 			{
-				b[tmp] = a[leftIter];
-				++tmp;
-				++leftIter;
+				b[tmp++] = a[leftIter++];
 			}
 			while (rightIter <= high)
 			{
-				b[tmp] = a[rightIter];
-				++tmp;
-				++rightIter;
+				b[tmp++] = a[rightIter++];
 			}
 			for (unsigned int i = low; i < tmp; ++i)
 			{
@@ -74,14 +67,14 @@ namespace AlgoLib
 		}
 
 		template <typename Cont>
-		void MergeSort(Cont& a, Cont& b, unsigned int low, unsigned int high)
+		void mergeSort(Cont& a, Cont& b, unsigned int low, unsigned int high)
 		{
 			if (low < high)
 			{
 				unsigned int middle = (low + high) / 2;
-				MergeSort(a, b, low, middle);
-				MergeSort(a, b, middle + 1, high);
-				Merge(a, b, low, middle, high);
+				mergeSort(a, b, low, middle);
+				mergeSort(a, b, middle + 1, high);
+				merge(a, b, low, middle, high);
 			}
 		}
 
@@ -103,7 +96,7 @@ namespace AlgoLib
 		}
 
 		template <typename Cont>
-		void HeapSort(Cont& a, std::size_t n)
+		void heapSort(Cont& a, std::size_t n)
 		{
 			for (int i = n / 2 - 1; i >= 0; --i)
 				maxHeap(a, n, i);
@@ -115,7 +108,7 @@ namespace AlgoLib
 		}
 
 		template <typename Cont>
-		void ShellSort(Cont& a, std::size_t n)
+		void shellSort(Cont& a, std::size_t n)
 		{
 			int h = 1;
 			while (h < n)

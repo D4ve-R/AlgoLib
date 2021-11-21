@@ -17,34 +17,35 @@ void printCont(const Cont& cont, std::size_t n)
 
 int main()
 {
+
     using namespace AlgoLib::Sorting;
 
     std::vector<int> vec = {8, 6, 2, 3};
-    QuickSort(vec, 0, 3);
+    quickSort(vec, 0, 3);
     printCont(vec, vec.size());
 
     int c_Array[] = {5, 9, 4, 1};
-    QuickSort(c_Array, 0, 3);
+    quickSort(c_Array, 0, 3);
     printCont(c_Array, sizeof(c_Array)/sizeof(c_Array[0]));
     
     std::array<int, 4> std_Array = {7, 2, 4, 1};
-    QuickSort(std_Array, 0, 3);
+    quickSort(std_Array, 0, 3);
     printCont(std_Array, std_Array.size());
 
     std::vector<int> vec1 = {8, 6, 2, 3};
-    HeapSort(vec1, vec1.size());
+    heapSort(vec1, vec1.size());
     printCont(vec1, vec1.size());
 
     int c_Array1[] = {5, 9, 4, 1};
-    HeapSort(c_Array1, 4);
+    heapSort(c_Array1, 4);
     printCont(c_Array1, sizeof(c_Array1)/sizeof(c_Array1[0]));
     
     std::array<int, 4> std_Array1 = {{7, 2, 4, 1}};
-    HeapSort(std_Array1, std_Array1.size());
+    heapSort(std_Array1, std_Array1.size());
     printCont(std_Array1, std_Array1.size());
 
     std::array<int, 4> std_Array2 = {{7, 2, 4, 1}};
-    ShellSort(std_Array2, std_Array2.size());
+    shellSort(std_Array2, std_Array2.size());
     printCont(std_Array2, std_Array2.size());
 
     return 0;
